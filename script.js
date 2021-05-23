@@ -5,7 +5,7 @@ import {
 
 const ELEMENTS = {
     score    : document.getElementById('point-total'),
-    pointsDiv: document.querySelector('#points'),
+    pointsDiv: document.querySelector('#points-div'),
     button   :null,
     challenge:null
 }
