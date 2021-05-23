@@ -1,7 +1,13 @@
 import {
     createChallenge,
-    setScore
+    setScore,
+    getChallengeInteger
 } from './actions.js';
 
-createChallenge(0)
+setInterval(()=>{
+  if(document.querySelector('.challenge') == null){
+    createChallenge(getChallengeInteger())
+  }
+},3000)
 document.body.onload = setScore()
+
