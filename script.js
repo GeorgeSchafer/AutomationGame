@@ -12,5 +12,3 @@ const ELEMENTS = {
 
 createChallenge(0,ELEMENTS)
 document.body.onload = setScore(ELEMENTS)
-
-
