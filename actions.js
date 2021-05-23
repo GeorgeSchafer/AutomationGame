@@ -45,28 +45,28 @@ export function createChallenge(challengeIndex) {
 }
 
 function clickedTheButton() {
+  countdown--;
+  incrementScore(1);
+
   if (countdown <= 1) {
     ELEMENTS.challenge.parentNode.removeChild(ELEMENTS.challenge);
     delete ELEMENTS.button;
     countdown = setCountdown(countdownMax);
   }
-
-  countdown--;
-  incrementScore(1);
 }
 
 function checkBoxThenClickTheButton(){
+  if(ELEMENTS.checkbox.checked){
+    countdown--;
+    console.log(countdown);
+    incrementScore(1);
+  }
+
   if (countdown <= 1) {
     ELEMENTS.challenge.parentNode.removeChild(ELEMENTS.challenge);
     delete ELEMENTS.button;
     delete ELEMENTS.checkbox;
     countdown = setCountdown(countdownMax);
-  }
-
-  if(ELEMENTS.checkbox.checked){
-    countdown--;
-    console.log(countdown);
-    incrementScore(1);
   }
 
   ELEMENTS.checkbox.checked = false;
