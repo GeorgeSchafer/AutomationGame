@@ -1,3 +1,10 @@
+const ELEMENTS = {
+    score    : document.getElementById('point-total'),
+    pointsDiv: document.querySelector('#points-div'),
+    button   :null,
+    challenge:null
+}
+
 const PLAYER = {
     score: 0
 }
@@ -12,23 +19,23 @@ export function setCountdown(max) {
     return Math.floor(Math.random() * max)+1;
 }
   
-export function createChallenge(challengeIndex,ELEMENTS) {
+export function createChallenge(challengeIndex) {
     ELEMENTS.challenge = document.createElement('div');
 
     ELEMENTS.challenge.className = 'challenge';
     ELEMENTS.challenge.innerHTML = challenges[challengeIndex];
     document.body.insertBefore(ELEMENTS.challenge, ELEMENTS.pointsDiv);
     ELEMENTS.button = document.querySelector('.challenge');
-    ELEMENTS.button.addEventListener('click', () => clickedTheButton(ELEMENTS));
+    ELEMENTS.button.addEventListener('click', () => clickedTheButton());
   }
   
-function clickedTheButton(ELEMENTS) {
+function clickedTheButton() {
     if (countdown == 1) {
        ELEMENTS.challenge.parentNode.removeChild(ELEMENTS.challenge);
     }
 
     countdown--;
-    incrementScore(1,ELEMENTS);
+    incrementScore(1);
 }
   
 function getScore() {
@@ -42,11 +49,11 @@ function getScore() {
       }
   }
   
-export function setScore(ELEMENTS) {
+export function setScore() {
     ELEMENTS.score.innerText = getScore();
 }
   
-function incrementScore(addedScore,ELEMENTS) {
+function incrementScore(addedScore) {
     PLAYER.score += addedScore;
     localStorage.setItem('score', PLAYER.score);
     ELEMENTS.score.innerText = PLAYER.score;

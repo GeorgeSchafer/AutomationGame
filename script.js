@@ -3,12 +3,7 @@ import {
     setScore
 } from './actions.js';
 
-const ELEMENTS = {
-    score    : document.getElementById('point-total'),
-    pointsDiv: document.querySelector('#points-div'),
-    button   :null,
-    challenge:null
-}
 
-createChallenge(0,ELEMENTS)
-document.body.onload = setScore(ELEMENTS)
+
+createChallenge(0)
+document.body.onload = setScore()
