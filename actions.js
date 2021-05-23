@@ -6,9 +6,9 @@ const challenges = [
     `<p>Click the button</p><input type="button" id="btn" value="Button" />`
 ]
 
-let countdown = getRandomInt(3)
+let countdown = setCountdown(10)
 
-export function getRandomInt(max) {
+export function setCountdown(max) {
     return Math.floor(Math.random() * max)+1;
 }
   
