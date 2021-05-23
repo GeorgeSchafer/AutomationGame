@@ -92,3 +92,9 @@ function incrementScore(addedScore) {
   localStorage.setItem('score', PLAYER.score);
   ELEMENTS.score.innerText = PLAYER.score;
 }
+
+export function generateChallenge(){
+  if(document.querySelector('.challenge') == null){
+    createChallenge(getChallengeInteger())
+  }
+}
