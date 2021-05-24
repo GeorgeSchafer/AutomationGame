@@ -29,15 +29,15 @@ const challenges = [
 let countdownMax = 10;
 let countdown = setCountdown(countdownMax);
 
-export function setCountdown(max) {
+function setCountdown(max) {
   return Math.floor(Math.random() * max)+1;
 }
 
-export function getChallengeInteger(){
+function getChallengeInteger(){
   return Math.floor(Math.random() * 3);
 }
   
-export function createChallenge(challengeIndex) {
+function createChallenge(challengeIndex) {
   elements.challenge = document.createElement('div');
   elements.challenge.className = 'challenge';
   elements.challenge.innerHTML = challenges[challengeIndex];
