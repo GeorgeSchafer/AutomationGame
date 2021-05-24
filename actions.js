@@ -26,7 +26,7 @@ const challenges = [
     <p><input type="button" id="btn" value="Button" /></p>`
 ];
 
-let countdownMax = 10;
+const countdownMax = 10;
 let countdown = setCountdown(countdownMax);
 
 function setCountdown(max) {
