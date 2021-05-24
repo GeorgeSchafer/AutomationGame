@@ -11,11 +11,11 @@ const player = {
 const challenges = [
     // [0]
     `<p>Click the button</p>
-    <input type="button" id="btn" value="Button" />`,
+    <p><input type="button" id="btn" value="Button" /></p>`,
     // [1]
     `<p>Check the box, then click the button.</p>
     <p><input type="checkbox" id="checkbox" /><p>
-    <input type="button" id="btn" value="Button" />`,
+    <p><input type="button" id="btn" value="Button" /></p>`,
     // [2]
     `<p>Check all the boxes, then click the button.</p>
     <p>
@@ -23,7 +23,7 @@ const challenges = [
       <input type="checkbox" id="checkbox2" />
       <input type="checkbox" id="checkbox3" />
     </p>
-    <input type="button" id="btn" value="Button" />`
+    <p><input type="button" id="btn" value="Button" /></p>`
 ];
 
 let countdownMax = 10;
