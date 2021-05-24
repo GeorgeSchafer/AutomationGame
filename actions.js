@@ -29,6 +29,12 @@ const challenges = [
 const countdownMax = 10;
 let countdown = setCountdown(countdownMax);
 
+export function generateChallenge(){
+  if(document.querySelector('.challenge') == null){
+    createChallenge(getChallengeInteger())
+  }
+}
+
 function setCountdown(max) {
   return Math.floor(Math.random() * max)+1;
 }
@@ -128,10 +134,4 @@ function incrementScore(addedScore) {
   player.score += addedScore;
   localStorage.setItem('score', player.score);
   elements.score.innerText = player.score;
-}
-
-export function generateChallenge(){
-  if(document.querySelector('.challenge') == null){
-    createChallenge(getChallengeInteger())
-  }
 }
