@@ -11,3 +11,15 @@ body {
     padding: 15px;
     text-align: center;
 }
+
+#points-div {
+    position:absolute;
+    bottom: 5px;
+    left: 5px;
+}
+
+#vanilla {
+    position:absolute;
+    bottom: 5px;
+    right: 5px;
+}
