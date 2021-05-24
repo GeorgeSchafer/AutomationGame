@@ -16,7 +16,7 @@ const challenges = [
     `<p>Check all the boxes, then click the button.</p><p><input type="checkbox" id="checkbox1" /><input type="checkbox" id="checkbox2" /><input type="checkbox" id="checkbox3" /></p><input type="button" id="btn" value="Button" />`
 ];
 
-let countdownMax = 3;
+let countdownMax = 10;
 let countdown = setCountdown(countdownMax);
 
 export function setCountdown(max) {
@@ -66,7 +66,6 @@ function clickedTheButton() {
 function checkBoxThenClickTheButton(){
   if(elements.checkbox.checked){
     countdown--;
-    console.log(countdown);
     incrementScore(1);
   }
 
@@ -83,7 +82,6 @@ function checkBoxThenClickTheButton(){
 function checkBoxesThenClickTheButton(){
   if(elements.checkbox1.checked && elements.checkbox2.checked && elements.checkbox3.checked ){
     countdown--;
-    console.log(countdown);
     incrementScore(1);
   }
 
