@@ -10,14 +10,14 @@ const player = {
 
 const challenges = [
     // [0]
-    `<p>Click the button</p><input type="button" id="btn" value="Button" />`,
+    `<p>Click the button</p>
+    <input type="button" id="btn" value="Button" />`,
     // [1]
     `<p>Check the box, then click the button.</p>
-    <input type="checkbox" id="checkbox" /><input type="button" id="btn" value="Button" />`,
+    <p><input type="checkbox" id="checkbox" /><p>
+    <input type="button" id="btn" value="Button" />`,
     // [2]
-    `<p>
-      Check all the boxes, then click the button.
-    </p>
+    `<p>Check all the boxes, then click the button.</p>
     <p>
       <input type="checkbox" id="checkbox1" />
       <input type="checkbox" id="checkbox2" />
