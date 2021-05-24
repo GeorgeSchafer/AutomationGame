@@ -1,13 +1,13 @@
 body {
-    background-color:blanchedalmond;
+    background-color: blanchedalmond;
 }
 
 .challenge {
-    background-color:white;
-    margin:auto;
-    width:40%;
-    border-radius:5px;
+    background-color: white;
+    margin: auto;
+    width: 40%;
+    border-radius: 5px;
     box-shadow: 0 0 5px;
-    padding:15px;
-    text-align:center;
+    padding: 15px;
+    text-align: center;
 }
