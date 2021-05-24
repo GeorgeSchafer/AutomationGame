@@ -14,7 +14,7 @@ const challenges = [
     <p><input type="button" id="btn" value="Button" /></p>`,
     // [1]
     `<p>Check the box, then click the button.</p>
-    <p><input type="checkbox" id="checkbox" /><p>
+    <p><input type="checkbox" id="checkbox" /></p>
     <p><input type="button" id="btn" value="Button" /></p>`,
     // [2]
     `<p>Check all the boxes, then click the button.</p>
