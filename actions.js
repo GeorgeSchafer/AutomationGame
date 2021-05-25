@@ -23,6 +23,12 @@ const challenges = [
       <input type="checkbox" id="checkbox2" />
       <input type="checkbox" id="checkbox3" />
     </p>
+    <p><input type="button" id="btn" value="Button" /></p>`,
+    // [3]
+    `<p>Type friend, then click the button.</p>
+    <p>
+      <input type="text" id="typingTest" />
+    </p>
     <p><input type="button" id="btn" value="Button" /></p>`
 ];
 
@@ -40,7 +46,7 @@ function setCountdown(max) {
 }
 
 function getChallengeInteger(){
-  return Math.floor(Math.random() * 3);
+  return Math.floor(Math.random() * challenges.length);
 }
   
 function createChallenge(challengeIndex) {
@@ -49,23 +55,29 @@ function createChallenge(challengeIndex) {
   elements.challenge.innerHTML = challenges[challengeIndex];
   document.body.insertBefore(elements.challenge, elements.pointsDiv);
   
-  if(challengeIndex == 0){
+  if(challengeIndex === 0){
     elements.button = document.querySelector('.challenge');
 
     elements.button.addEventListener('click', () => clickedTheButton());
-  } else if(challengeIndex == 1){
+  } else if(challengeIndex === 1){
     elements.button = document.querySelector('#btn');
     elements.checkbox = document.querySelector('#checkbox');
 
     elements.button.addEventListener('click', () => checkBoxThenClickTheButton());
-  } else if (challengeIndex == 2){
+  } else if (challengeIndex === 2){
     elements.button = document.querySelector('#btn');
     elements.checkbox1 = document.querySelector('#checkbox1');
     elements.checkbox2 = document.querySelector('#checkbox2');
     elements.checkbox3 = document.querySelector('#checkbox3');
     
     elements.button.addEventListener('click',() => checkBoxesThenClickTheButton());
+  } else if (challengeIndex === 3){
+    elements.button = document.querySelector('#btn');
+    elements.typingTest = document.querySelector('#typingTest');
+
+    elements.button.addEventListener('click',() => typeFriendThenClickTheButton() );
   }
+    
 }
 
 function clickedTheButton() {
@@ -113,6 +125,21 @@ function checkBoxesThenClickTheButton(){
   elements.checkbox1.checked = false;
   elements.checkbox2.checked = false;
   elements.checkbox3.checked = false;
+}
+
+function typeFriendThenClickTheButton(){
+  if(elements.typingTest.value === 'friend' || elements.typingTest.value == 'Friend'){
+    countdown--;
+    incrementScore(1);
+  }
+
+  if(countdown <= 1){
+    elements.challenge.parentNode.removeChild(elements.challenge);
+    delete elements.typingTest;
+    countdown = setCountdown(countdownMax);
+  }
+
+  elements.typingTest.value = '';
 }
   
 function getScore() {
