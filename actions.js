@@ -26,9 +26,7 @@ const challenges = [
     <p><input type="button" id="btn" value="Button" /></p>`,
     // [3]
     `<p>Type friend, then click the button.</p>
-    <p>
-      <input type="text" id="typingTest" />
-    </p>
+    <p><input type="text" id="typingTest" /></p>
     <p><input type="button" id="btn" value="Button" /></p>`
 ];
 
