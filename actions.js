@@ -11,23 +11,42 @@ const player = {
 const challenges = [
     // [0]
     `<p>Click the button</p>
-    <p><input type="button" id="btn" value="Button" /></p>`,
+    <div><input type="button" id="btn" value="Button" /></div>`,
     // [1]
     `<p>Check the box, then click the button.</p>
-    <p><input type="checkbox" id="checkbox" /></p>
-    <p><input type="button" id="btn" value="Button" /></p>`,
+    <div class="task">
+      <input type="checkbox" id="checkbox" />
+    </div>
+    <div><input type="button" id="btn" value="Button" /></div>`,
     // [2]
     `<p>Check all the boxes, then click the button.</p>
-    <p>
+    <div class="task">
       <input type="checkbox" id="checkbox1" />
       <input type="checkbox" id="checkbox2" />
       <input type="checkbox" id="checkbox3" />
-    </p>
-    <p><input type="button" id="btn" value="Button" /></p>`,
+    </div>
+    <div>
+      <input type="button" id="btn" value="Button" />
+    </div>`,
     // [3]
     `<p>Type friend, then click the button.</p>
-    <p><input type="text" id="typingTest" /></p>
-    <p><input type="button" id="btn" value="Button" /></p>`
+    <div class="task">
+      <input type="text" id="typingTest" />
+    </div>
+    <div>
+      <input type="button" id="btn" value="Button" />
+    </div>`,
+    // [4]
+    `<p>Type the code, then click the button</p>
+    <div class="task">
+      <p>${generateRandomString()}<p>
+      <div>
+        <input type="text" id="typingTest" />
+      </div>
+    </div>
+    <div>
+      <input type="button" id="btn" value="Button" />
+    </div>`
 ];
 
 const countdownMax = 10;
@@ -44,6 +63,7 @@ function setCountdown(max) {
 }
 
 function getChallengeInteger(){
+//  return 4;
   return Math.floor(Math.random() * challenges.length);
 }
   
@@ -73,7 +93,12 @@ function createChallenge(challengeIndex) {
     elements.button = document.querySelector('#btn');
     elements.typingTest = document.querySelector('#typingTest');
 
-    elements.button.addEventListener('click',() => typeFriendThenClickTheButton() );
+    elements.button.addEventListener('click',() => typeFriendThenClickTheButton());
+  } else if (challengeIndex === 4){
+    elements.button = document.querySelector('#btn');
+    elements.typingTest = document.querySelector('#typingTest');
+
+    elements.button.addEventListener('click',()=> typeCodeThenClickTheButton());
   }
     
 }
@@ -111,6 +136,10 @@ function checkBoxesThenClickTheButton(){
     incrementScore(1);
   }
 
+  elements.checkbox1.checked = false;
+  elements.checkbox2.checked = false;
+  elements.checkbox3.checked = false;
+
   if (countdown <= 1) {
     elements.challenge.parentNode.removeChild(elements.challenge);
     delete elements.button;
@@ -119,16 +148,13 @@ function checkBoxesThenClickTheButton(){
     delete elements.checkbox3;
     countdown = setCountdown(countdownMax);
   }
-
-  elements.checkbox1.checked = false;
-  elements.checkbox2.checked = false;
-  elements.checkbox3.checked = false;
 }
 
 function typeFriendThenClickTheButton(){
   if(elements.typingTest.value === 'friend' || elements.typingTest.value == 'Friend'){
     countdown--;
     incrementScore(1);
+    elements.typingTest.value = '';
   }
 
   if(countdown <= 1){
@@ -136,10 +162,37 @@ function typeFriendThenClickTheButton(){
     delete elements.typingTest;
     countdown = setCountdown(countdownMax);
   }
-
-  elements.typingTest.value = '';
 }
-  
+
+function typeCodeThenClickTheButton(){
+  const code = document.querySelector('.task > p');
+
+  if(elements.typingTest.value === `${code.textContent}`){
+    countdown--;
+    incrementScore(1);
+    code.textContent = generateRandomString();
+    elements.typingTest.value = '';
+  }
+
+
+  if(countdown <= 1){
+    elements.challenge.parentNode.removeChild(elements.challenge);
+    delete elements.typingTest;
+    countdown = setCountdown(countdownMax);
+  }
+}
+
+function generateRandomString(){
+  const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()';
+  let result='';
+
+  for(let i = 0; i < 6 ; i++){
+    result += characters.charAt(Math.floor(Math.random()*characters.length));
+  }
+
+  return result;
+}
+
 function getScore() {
   let score = localStorage.getItem('score');
 
