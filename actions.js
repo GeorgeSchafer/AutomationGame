@@ -49,8 +49,8 @@ const challenges = [
     </div>`
 ];
 
-const countdownMax = 10;
-let countdown = setCountdown(countdownMax);
+const countdownFrom = 3;
+let countdown = setCountdown(countdownFrom);
 
 export function generateChallenge(){
   if(document.querySelector('.challenge') == null){
@@ -110,7 +110,7 @@ function clickedTheButton() {
   if (countdown <= 1) {
     elements.challenge.parentNode.removeChild(elements.challenge);
     delete elements.button;
-    countdown = setCountdown(countdownMax);
+    countdown = setCountdown(countdownFrom);
   }
 }
 
@@ -124,7 +124,7 @@ function checkBoxThenClickTheButton(){
     elements.challenge.parentNode.removeChild(elements.challenge);
     delete elements.button;
     delete elements.checkbox;
-    countdown = setCountdown(countdownMax);
+    countdown = setCountdown(countdownFrom);
   }
 
   elements.checkbox.checked = false;
@@ -146,7 +146,7 @@ function checkBoxesThenClickTheButton(){
     delete elements.checkbox1;
     delete elements.checkbox2;
     delete elements.checkbox3;
-    countdown = setCountdown(countdownMax);
+    countdown = setCountdown(countdownFrom);
   }
 }
 
@@ -160,7 +160,7 @@ function typeFriendThenClickTheButton(){
   if(countdown <= 1){
     elements.challenge.parentNode.removeChild(elements.challenge);
     delete elements.typingTest;
-    countdown = setCountdown(countdownMax);
+    countdown = setCountdown(countdownFrom);
   }
 }
 
@@ -178,7 +178,7 @@ function typeCodeThenClickTheButton(){
   if(countdown <= 1){
     elements.challenge.parentNode.removeChild(elements.challenge);
     delete elements.typingTest;
-    countdown = setCountdown(countdownMax);
+    countdown = setCountdown(countdownFrom);
   }
 }
 
